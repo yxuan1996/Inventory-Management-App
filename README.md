@@ -7,11 +7,16 @@ Uses Node JS for the Backend.
 
 Running the app
 
-We need to run `npm run tailwind:css` every time we make changes to the app.
+We need to run `npm run dev`
 
-We install nodemon globally `npm install -g nodemon` and then run `nodemon index.js`
+This command does 2 things (See package.json)
+- Uses nodemon so that the app will restart when any file changes are made. 
+- Before starting the app, run `npm run tailwind:css` to compile all CSS changes. 
 
-Alternatively use `npm run start`
+https://medium.com/@mariokandut/restart-a-node-js-app-automatically-301b22091a23#:~:text=The%20package%20nodemon%20has%20an%20--exec%20flag%20to,%22dev%22%20entry%20in%20the%20scripts%20field%20in%20package.json.
+
+Restart nodemon when EJS file changes
+https://stackoverflow.com/questions/12559176/is-there-anything-like-nodemon-that-will-restart-a-node-app-when-ejs-file-chang
 
 ### TailwindCSS installation
 
@@ -38,8 +43,6 @@ Note: We will not use babel for this project
 nodemon --exec babel-node app.js
 ```
 
-Watching Tailwind CSS files automatically
-https://alexanderzeitler.com/articles/watch-tailwind-changes-update-browser-sync/
 
 
 
