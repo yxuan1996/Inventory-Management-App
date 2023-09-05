@@ -31,3 +31,16 @@ We modify the `package.json` by adding `"type": "module"` to enable ES6 modules.
 When importing a module from another file, we need to include the .js file extension
 ```JS
 import  messageController  from '../controllers/messageController.js';
+```
+
+Note: We will not use babel for this project
+```
+nodemon --exec babel-node app.js
+```
+
+Watching Tailwind CSS files automatically
+https://alexanderzeitler.com/articles/watch-tailwind-changes-update-browser-sync/
+
+
+
+
