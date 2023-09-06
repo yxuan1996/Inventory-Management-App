@@ -43,6 +43,12 @@ Note: We will not use babel for this project
 nodemon --exec babel-node app.js
 ```
 
+### Authentication
+We want to ensure that only authenticated users can create, edit and delete items. Non authenticated users can only view items. 
+
+### Search funtionality
+Provide the ability to filter by Category and Name. 
+
 
 
 
