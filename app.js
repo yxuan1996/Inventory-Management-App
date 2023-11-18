@@ -32,6 +32,14 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'Home' });
 });
 
+app.get('/destinations', (req, res) => {
+  res.render('destinations', { data: [] });
+});
+
+app.get('/new', (req, res) => {
+  res.render('create_destination', { data: [] });
+});
+
 // 404 page
 app.use((req, res) => {
   res.status(404).sendFile('./views/404.html', { root: __dirname });

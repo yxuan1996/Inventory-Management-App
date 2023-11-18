@@ -1,6 +1,8 @@
 # Inventory-Management-App
 Simple Inventory Management App for an Imaginary Store. 
 
+We are a futuristic tour agency that sells travel packages to imaginary and sci-fi locations. 
+
 Uses Node JS for the Backend. 
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#github.com/yxuan1996/Inventory-Management-App)
@@ -17,6 +19,8 @@ https://medium.com/@mariokandut/restart-a-node-js-app-automatically-301b22091a23
 
 Restart nodemon when EJS file changes
 https://stackoverflow.com/questions/12559176/is-there-anything-like-nodemon-that-will-restart-a-node-app-when-ejs-file-chang
+
+# App Screenshots
 
 ### TailwindCSS installation
 
