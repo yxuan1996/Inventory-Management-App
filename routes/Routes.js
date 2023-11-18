@@ -13,7 +13,8 @@ const limiter = rateLimit({
   });
 
 
-router.get('/', InventoryController.item_index);
+router.get('/', InventoryController.main_page);
+router.get('/destinations', InventoryController.item_index)
 router.get('/new', InventoryController.item_create_get);
 router.post('/new', limiter, InventoryController.item_create_post);
 router.get('/:id', InventoryController.item_details);

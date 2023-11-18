@@ -2,6 +2,11 @@ import firebase from '../firebase.js';
 // import { collection, addDoc, doc, getDocs, deleteDoc } from "firebase/firestore"; 
 import asyncHandler from "express-async-handler";
 
+const main_page = asyncHandler(async (req, res, next) => {
+
+  res.render('index')
+})
+
 const item_index = asyncHandler(async (req, res, next) => {
   const result = await getDocs(collection(firebase.db, "messages"));
   let response = [];
@@ -62,6 +67,7 @@ const item_delete = asyncHandler(async (req, res, next) => {
 
 
 export default {
+    main_page,
     item_index, 
     item_details, 
     item_create_get, 
