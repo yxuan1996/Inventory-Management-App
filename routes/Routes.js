@@ -14,10 +14,13 @@ const limiter = rateLimit({
 
 
 router.get('/', InventoryController.main_page);
-router.get('/destinations', InventoryController.item_index)
+router.get('/signin', InventoryController.signin_get);
+router.post('/signin', InventoryController.signin_post);
+router.get('/destinations', InventoryController.item_index);
 router.get('/new', InventoryController.item_create_get);
 router.post('/new', limiter, InventoryController.item_create_post);
 router.get('/:id', InventoryController.item_details);
 router.delete('/:id', InventoryController.item_delete);
+
 
 export default router;

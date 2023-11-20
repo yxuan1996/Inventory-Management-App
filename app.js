@@ -8,7 +8,7 @@ import {fileURLToPath} from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// import Routes from './routes/Routes.js';
+import Routes from './routes/Routes.js';
 
 
 const app = express();
@@ -26,19 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 
 // Main Routes
-// app.use('/', Routes);
+app.use('/', Routes);
 
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Home' });
-});
-
-app.get('/destinations', (req, res) => {
-  res.render('destinations', { data: [] });
-});
-
-app.get('/new', (req, res) => {
-  res.render('create_destination', { data: [] });
-});
 
 // 404 page
 app.use((req, res) => {

@@ -50,8 +50,18 @@ nodemon --exec babel-node app.js
 ### Authentication
 We want to ensure that only authenticated users can create, edit and delete items. Non authenticated users can only view items. 
 
+We will be using google firebase authentication to authenticate the users. 
+
 ### Search funtionality
 Provide the ability to filter by Category and Name. 
+
+### Pin footer to bottom
+We use absolute positioning to pin the footer to the bottom of the page. 
+
+We can apply absolute positioning using the following tailwind classes. 
+```
+absolute inset-x-0 bottom-0
+```
 
 
 
