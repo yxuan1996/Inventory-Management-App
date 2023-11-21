@@ -1,7 +1,7 @@
 import firebase from '../firebase.js';
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import {  ref, uploadBytes, getMetadata } from "firebase/storage";
-// import { collection, addDoc, doc, getDocs, deleteDoc } from "firebase/firestore"; 
+import { collection, addDoc, doc, getDocs, deleteDoc } from "firebase/firestore"; 
 import asyncHandler from "express-async-handler";
 import * as fs from 'fs';
 import path from 'path';
@@ -16,16 +16,16 @@ const main_page = asyncHandler(async (req, res, next) => {
 })
 
 const item_index = asyncHandler(async (req, res, next) => {
-  // const result = await getDocs(collection(firebase.db, "messages"));
-  // let response = [];
-  // let count = 0;
+  const result = await getDocs(collection(firebase.db, "destinations"));
+  let response = [];
+  let count = 0;
 
-  // result.forEach(doc => {
-  //   count += 1;
-  //   let doc_object = doc.data();
-  //   doc_object['id'] = doc.id;
-  //   response.push(doc_object);
-  // });
+  result.forEach(doc => {
+    count += 1;
+    let doc_object = doc.data();
+    doc_object['id'] = doc.id;
+    response.push(doc_object);
+  });
 
   // // if more than 25 messages, we delete the oldest message
   // if (count > 25) {
@@ -33,8 +33,7 @@ const item_index = asyncHandler(async (req, res, next) => {
   //   await deleteDoc(doc(firebase.db, "messages", itemforDeletion.id));
   // };
 
-  // res.render('index', {  data: response })
-  res.render('destinations', {  data: [] })
+  res.render('destinations', {  data: response })
 })
 
 // Find a single item
@@ -44,9 +43,7 @@ const item_details = (req, res) => {
 }
 
 // Render Form Page
-// Function not used
 const item_create_get = (req, res) => {
-  // res.render('create', { title: 'New Message' });
   res.render('create_destination')
 }
 
@@ -94,16 +91,20 @@ const item_create_post = asyncHandler(async (req, res, next) => {
     console.log (error)
     res.status(400).send(error.message);
   } 
-  // try {
-  //   const docRef = await addDoc(collection(firebase.db, "messages"), {
-  //     title: req.body.title,
-  //     author: req.body.author,
-  //     message: req.body.message
-  //   });
-  //   console.log("Document written with ID: ", docRef.id);
-  // } catch (e) {
-  //   console.error("Error adding document: ", e);
-  // }  
+
+  try {
+    const docRef = await addDoc(collection(firebase.db, "destinations"), {
+      name: req.body.name,
+      category: req.body.category,
+      price: req.body.price,
+      days: req.body.days,
+      description: req.body.description,
+      imageURL: `${req.file.originalname}`
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }  
   res.redirect('/destinations');
 
 })

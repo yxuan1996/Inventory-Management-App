@@ -16,7 +16,7 @@ const storage = multer.memoryStorage();
 // name of the file needs to be as the same as the name in our form (in this case 'image')
 const upload = multer({ storage: storage }).single('image');
 
-
+// We cannot use diskupload as it will save image locally only.
 // var diskstorage = multer.diskStorage({
 //   destination: function (req, file, cb) {
 //     cb(null, path.join(main_directory, '/public/images'))
