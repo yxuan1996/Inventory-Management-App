@@ -19,17 +19,16 @@
   </div> 
 
 <div class="flex items-center justify-center h-full">
-  <form method="POST" action="/new" class="modal-box flex justify-center justify-items-center flex-col gap-3" id="add_message_form">
+  <form method="POST" enctype="multipart/form-data" action="/new" class="modal-box flex justify-center justify-items-center flex-col gap-3" id="add_message_form">
     <h3 class="font-bold text-lg">Create a New Destination</h3>
     <p>Need to have a way to upload images</p>
     <input type="text" name='title' placeholder="Title" class="input input-bordered w-full max-w-xs" id="title" />
     <input type="text" name='author' placeholder="Author" class="input input-bordered w-full max-w-xs" id="author"/>
+    <input type="file" name='image' class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="image"/>
     <textarea type='text' name='message' class="textarea textarea-bordered w-full max-w-xs" placeholder="Type your message here" id="message"></textarea>
     <button type="submit" value="submit" class="btn btn-primary btn-outline w-24">Submit</button>
   </form>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
+
 </div>
       
     <footer class="footer items-center p-4 bg-neutral text-neutral-content">

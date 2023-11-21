@@ -52,6 +52,45 @@ We want to ensure that only authenticated users can create, edit and delete item
 
 We will be using google firebase authentication to authenticate the users. 
 
+### Firebase security rules
+https://medium.com/firebase-developers/a-list-of-firebase-firestore-security-rules-for-your-project-fe46cfaf8b2a
+
+### Upload images
+https://javascript.plainenglish.io/uploading-an-image-to-firebase-cloud-storage-and-returning-url-with-express-nodejs-713daac7a5d4
+
+https://code.tutsplus.com/file-upload-with-multer-in-node--cms-32088t
+
+We will be giving authenticated users the ability to upload images when creating new destinations. 
+
+First, we need to npm install the following middlewares to obtain the image file data from our form. 
+```
+npm install express-fileupload
+npm install multer
+npm install xhr2
+npm install body-parser
+```
+
+In our form, we need to add the property `enctype="multipart/form-data"` to allow for file uploads. 
+
+In `Routes.js` we import the multer middleware and use it to handle file uploads. The name of the file needs to be as the same as the name in our form (in this case 'image')
+```JS
+import multer from "multer";
+
+// Setting up multer as a middleware to grab photo uploads
+const storage = multer.memoryStorage();
+// name of the file needs to be as the same as the name in our form (in this case 'image')
+const upload = multer({ storage: storage }).single('image');
+
+router.post('/new', upload, InventoryController.item_create_post);
+```
+
+In our `InventoryController.js` item_create_post method we grab the file, create a reference in firebase cloud storage, then upload the file. 
+
+### Handling Data
+- We will store our form data in firestore. 
+- Uploaded images will be stored in 2 locations: locally `/public/images/` and in firebase storage
+- If the locally stored images are lost due to server shutdown, we can download the images from firebase and load it into `./public/images/`
+
 ### Search funtionality
 Provide the ability to filter by Category and Name. 
 
