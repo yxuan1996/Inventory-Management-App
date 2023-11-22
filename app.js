@@ -30,8 +30,8 @@ app.use('/', Routes);
 
 
 // 404 page
-app.use((req, res) => {
-  res.status(404).sendFile('./views/404.html', { root: __dirname });
-});
+// app.use((req, res) => {
+//   res.status(404).sendFile('./views/404.html', { root: __dirname });
+// });
 
 app.listen(3000);
