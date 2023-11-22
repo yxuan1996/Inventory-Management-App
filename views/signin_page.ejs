@@ -18,6 +18,10 @@
     </div>
   </div> 
 
+  <% if (errorCode !== null) { %>
+  <script>alert('Invalid username or password, please sign in again');</script> 
+  <% } %>
+
   <div class="flex flex-col items-center justify-center">
     <form method="POST" action="/signin" class="modal-box outline-primary flex flex-col justify-center justify-items-center gap-4" id="signin_form">
       <h3 class="font-bold text-lg">Sign in to Manage Inventory</h3>

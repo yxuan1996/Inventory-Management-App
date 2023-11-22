@@ -44,8 +44,8 @@ router.post('/signin', InventoryController.signin_post);
 router.get('/destinations', InventoryController.item_index);
 router.get('/new', InventoryController.item_create_get);
 router.post('/new',  upload, InventoryController.item_create_post);
-router.get('/:id', InventoryController.item_details);
-router.delete('/:id', InventoryController.item_delete);
+router.get('/destinations/:id', InventoryController.item_details);
+router.delete('/destinations/:id', InventoryController.item_delete);
 
 
 export default router;
