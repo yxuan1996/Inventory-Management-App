@@ -91,9 +91,6 @@ In our `InventoryController.js` item_create_post method we grab the file, create
 - Uploaded images will be stored in 2 locations: locally `/public/images/` and in firebase storage
 - If the locally stored images are lost due to server shutdown, we can download the images from firebase and load it into `./public/images/`
 
-### Search funtionality
-Provide the ability to filter by Category and Name. 
-
 ### Pin footer to bottom
 We use absolute positioning to pin the footer to the bottom of the page. 
 
@@ -101,6 +98,10 @@ We can apply absolute positioning using the following tailwind classes.
 ```
 absolute inset-x-0 bottom-0
 ```
+
+### Potential Improvements
+- Separate Auth functions (Sign in) into a separate controller. 
+- Search functionality: provide the ability to filter by category and name. 
 
 
 

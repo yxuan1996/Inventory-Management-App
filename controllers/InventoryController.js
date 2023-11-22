@@ -37,7 +37,7 @@ const item_index = asyncHandler(async (req, res, next) => {
 
   const auth = getAuth();
   const user = auth.currentUser;
-  let userstate = "";
+  let userstate = "None";
   if (user !== null) {
     if (user.uid == "V2UwWzuX9chtITjKUbfRaW83uNy1") {
     userstate = "Authorized"
@@ -151,12 +151,19 @@ const item_create_post = asyncHandler(async (req, res, next) => {
 })
 
 const item_delete = asyncHandler(async (req, res, next) => {
-  // const id = req.params.id;
-  // console.log(id);
+  const id = req.params.id;
+  console.log(id);
+  const auth = getAuth();
+  const user = auth.currentUser;
+  if (user !== null){
+  if (user.uid == "V2UwWzuX9chtITjKUbfRaW83uNy1") {
 
-  // await deleteDoc(doc(firebase.db, "messages", id));
+  await deleteDoc(doc(firebase.db, "destinations", id));
 
-  // res.json({ redirect: '/' });
+  res.json({ redirect: '/destinations' });
+
+  }
+  }
 
 })
 
