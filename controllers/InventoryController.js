@@ -1,5 +1,5 @@
 import firebase from '../firebase.js';
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import {  ref, uploadBytes, getMetadata } from "firebase/storage";
 import { collection, addDoc, doc, getDocs, getDoc, deleteDoc } from "firebase/firestore"; 
 import asyncHandler from "express-async-handler";
@@ -218,6 +218,16 @@ const signin_post = asyncHandler(async (req, res, next) => {
 
 })
 
+const signout = asyncHandler(async (req, res, next) => {
+  const auth = getAuth();
+  signOut(auth).then(() => {
+    // Sign-out successful.
+  }).catch((error) => {
+    console.log(error);
+  });
+  res.redirect('/destinations');
+})
+
 
 export default {
     main_page,
@@ -227,5 +237,6 @@ export default {
     item_create_post, 
     item_delete,
     signin_get,
-    signin_post
+    signin_post,
+    signout
   };
